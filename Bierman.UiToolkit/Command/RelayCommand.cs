@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace Bierman.UiToolkit.Commands
+namespace Bierman.UiToolkit.Command
 {
     /// <summary>
     /// A command whose sole purpose is to relay its functionality to other

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using Bierman.UiToolkit.Behaviors;
 
-namespace Bierman.UiToolkit.ViewModels
+namespace Bierman.UiToolkit.ViewModel
 {
     /// <summary>
     /// A base classe for ViewModel classes which supports validation using IDataErrorInfo interface. Properties must defines

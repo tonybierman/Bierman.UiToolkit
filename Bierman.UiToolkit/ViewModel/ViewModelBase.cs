@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
 
-namespace Bierman.UiToolkit.ViewModels
+namespace Bierman.UiToolkit.ViewModel
 {
     /// <summary>
     /// Base class for all ViewModel classes in the application. Provides support for 
