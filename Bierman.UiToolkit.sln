@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bierman.UiToolkit", "Bierman.UiToolkit\Bierman.UiToolkit.csproj", "{8E2B394C-4AE2-422F-BE22-21EFAFBF020E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E2B394C-4AE2-422F-BE22-21EFAFBF020E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E2B394C-4AE2-422F-BE22-21EFAFBF020E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E2B394C-4AE2-422F-BE22-21EFAFBF020E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E2B394C-4AE2-422F-BE22-21EFAFBF020E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1739F6AD-D41A-4774-B6D7-C4008C5DB345}
+	EndGlobalSection
+EndGlobal
