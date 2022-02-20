@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace Bierman.UiToolkit.Converters.Converters
+namespace Bierman.UiToolkit.Converters
 {
     public class ReductionConverter : IValueConverter
     {
