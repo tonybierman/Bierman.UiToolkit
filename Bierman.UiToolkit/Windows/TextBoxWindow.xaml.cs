@@ -56,6 +56,11 @@ namespace Bierman.UiToolkit.Windows
             InitializeComponent();
         }
 
+        public TextBoxWindow(string name) : this()
+        {
+            Text = name;
+        }
+
         private void Confirm(object s, RoutedEventArgs e)
         {
             DialogResult = true;
