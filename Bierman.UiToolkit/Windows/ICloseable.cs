@@ -8,6 +8,7 @@ namespace Bierman.UiToolkit.Windows
 {
     public interface ICloseable
     {
+        string WindowTitle { get; set; }
         event EventHandler CloseRequest;
     }
 }
