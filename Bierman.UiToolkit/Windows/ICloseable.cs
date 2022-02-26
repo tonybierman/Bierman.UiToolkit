@@ -10,5 +10,6 @@ namespace Bierman.UiToolkit.Windows
     {
         string WindowTitle { get; set; }
         event EventHandler CloseRequest;
+        event EventHandler CancelRequest;
     }
 }
