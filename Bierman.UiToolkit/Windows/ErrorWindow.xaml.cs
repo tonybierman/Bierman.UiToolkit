@@ -35,7 +35,7 @@ namespace Bierman.UiToolkit.Windows
 
         public ErrorWindow(string message, object ex) : this(message)
         {
-            this._ex = ex;
+            _ex = ex;
         }
 
         private void ErrorWindow_Loaded(object sender, RoutedEventArgs e)
@@ -47,7 +47,6 @@ namespace Bierman.UiToolkit.Windows
         }
         private void Confirm(object s, RoutedEventArgs e)
         {
-            DialogResult = true;
             this.Close();
         }
     }

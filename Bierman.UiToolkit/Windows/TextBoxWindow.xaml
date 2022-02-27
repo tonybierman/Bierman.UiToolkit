@@ -23,7 +23,7 @@
                 <TextBox Width="285" TabIndex="0" x:Name="txtText" Text="{Binding Text}" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Click="Confirm"
-                         IsDefault="true">
+                         >
                         <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xF78C;" FontSize="16" VerticalAlignment="Center"/>
                     </Button>
                     <Button Click="Cancel"

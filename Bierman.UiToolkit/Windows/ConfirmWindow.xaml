@@ -25,8 +25,7 @@
                 <TextBlock FontSize="18" HorizontalAlignment="Center" x:Name="LabelPrompt" VerticalAlignment="Center" Margin="5"
             TextWrapping="WrapWithOverflow" Text="Please confirm this action."/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Click="Confirm"
-                         IsDefault="true">
+                    <Button Click="Confirm">
                         <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xF78C;" FontSize="16" VerticalAlignment="Center"/>
                     </Button>
                     <Button Click="Cancel"
