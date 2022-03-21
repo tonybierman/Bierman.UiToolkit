@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Data;
 
-namespace FlowDocumentApp.FlowDocuments
+namespace Bierman.UiToolkit.FlowDocuments
 {
     // https://docs.microsoft.com/en-us/archive/msdn-magazine/2009/april/create-flexible-uis-with-flow-documents-and-data-binding#id0420102
     public class BindableRun : Run

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace FlowDocumentApp.FlowDocuments
+namespace Bierman.UiToolkit.FlowDocuments
 {
     public class Attached
     {

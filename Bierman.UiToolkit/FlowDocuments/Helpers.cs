@@ -4,7 +4,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System;
 
-namespace FlowDocumentApp.FlowDocuments
+namespace Bierman.UiToolkit.FlowDocuments
 {
     internal static class Helpers
     {

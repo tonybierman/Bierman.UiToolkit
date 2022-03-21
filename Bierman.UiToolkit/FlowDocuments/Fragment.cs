@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Markup;
 
-namespace FlowDocumentApp.FlowDocuments
+namespace Bierman.UiToolkit.FlowDocuments
 {
     [ContentProperty("Content")]
     public class Fragment : FrameworkElement

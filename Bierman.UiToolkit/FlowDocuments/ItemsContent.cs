@@ -3,7 +3,7 @@ using System.Collections;
 using System.Windows;
 using System.Windows.Documents;
 
-namespace FlowDocumentApp.FlowDocuments
+namespace Bierman.UiToolkit.FlowDocuments
 {
     public class ItemsContent : Section
     {
