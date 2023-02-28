@@ -20,7 +20,11 @@
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="1" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"
                         FocusManager.FocusedElement="{Binding ElementName=txtText}">
-                <TextBox Width="285" TabIndex="0" x:Name="txtText" Text="{Binding Text}" />
+                <TextBox Width="285" Height="80" TabIndex="0" x:Name="txtText" Text="{Binding Text}"
+                            TextWrapping="Wrap"
+                            AcceptsReturn="True"
+                            HorizontalScrollBarVisibility="Disabled"
+                            VerticalScrollBarVisibility="Auto" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Click="Confirm"
                          >
