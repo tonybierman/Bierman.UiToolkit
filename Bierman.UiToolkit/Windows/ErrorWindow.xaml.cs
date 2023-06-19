@@ -50,7 +50,8 @@ namespace Bierman.UiToolkit.Windows
             while (currentException != null)
             {
                 // Process or log the current exception
-                _message += "\n" + currentException.Message;
+                _message += "\nException: " + currentException.Message;
+                _message += "\nCall Stack:\n " + currentException.StackTrace;
 
                 // Move to the next inner exception
                 currentException = currentException.InnerException;
