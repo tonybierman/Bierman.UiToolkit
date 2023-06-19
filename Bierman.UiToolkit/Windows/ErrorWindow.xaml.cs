@@ -25,12 +25,17 @@ namespace Bierman.UiToolkit.Windows
         public ErrorWindow()
         {
             InitializeComponent();
+            Loaded += ErrorWindow_Loaded;
         }
 
         public ErrorWindow(string message) : this()
         {
             _message = message;
-            Loaded += ErrorWindow_Loaded;
+        }
+
+        public ErrorWindow(object ex) : this()
+        {
+            _ex = ex;
         }
 
         public ErrorWindow(string message, object ex) : this(message)
@@ -40,7 +45,18 @@ namespace Bierman.UiToolkit.Windows
 
         private void ErrorWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            if(!string.IsNullOrEmpty(_message))
+            Exception currentException = _ex as Exception;
+
+            while (currentException != null)
+            {
+                // Process or log the current exception
+                _message += "\n" + currentException.Message;
+
+                // Move to the next inner exception
+                currentException = currentException.InnerException;
+            }
+
+            if (!string.IsNullOrEmpty(_message))
             {
                 LabelMessage.Text = _message;
             }
