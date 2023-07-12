@@ -10,6 +10,15 @@ namespace Bierman.UiToolkit.Wizardry.Model
 {
     public class WizardData : INotifyPropertyChanged, INotifyDataErrorInfo
     {
+        protected void ValidateNotNull(string name, string? value)
+        {
+            ClearErrors(name);
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                AddError(name, $"{name} cannot be empty");
+            }
+        }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         // INotifyDataErrorInfo implementation
