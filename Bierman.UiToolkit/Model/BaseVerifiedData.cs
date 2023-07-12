@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bierman.UiToolkit.Wizardry.Model
+namespace Bierman.UiToolkit.Model
 {
-    public class WizardData : INotifyPropertyChanged, INotifyDataErrorInfo
+    public class BaseVerifiedData : INotifyPropertyChanged, INotifyDataErrorInfo
     {
         protected void ValidatePositiveNumber(string name, double? input)
         {

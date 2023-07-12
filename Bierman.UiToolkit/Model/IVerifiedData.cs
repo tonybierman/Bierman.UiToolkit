@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bierman.UiToolkit.Wizardry.Model
+namespace Bierman.UiToolkit.Model
 {
-    public interface IWizardData
+    public interface IVerifiedData
     {
         void Validate();
     }

@@ -1,16 +1,13 @@
-﻿
-
-using Bierman.UiToolkit.Command;
-using Bierman.UiToolkit.ViewModel;
+﻿using Bierman.UiToolkit.Command;
 using Bierman.UiToolkit.Windows;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Bierman.UiToolkit.Wizardry.ViewModel
+namespace Bierman.UiToolkit.ViewModel
 {
-    public abstract class WizardViewModelBase : ValidationViewModelBase, ICloseable
+    public abstract class PresentableViewModelBase : ValidationViewModelBase, ICloseable
     {
         private bool isValid;
         private readonly string formName;
@@ -30,7 +27,7 @@ namespace Bierman.UiToolkit.Wizardry.ViewModel
             set
             {
                 _image = value;
-                this.OnPropertyChanged("Image");
+                OnPropertyChanged("Image");
             }
         }
 
@@ -43,7 +40,7 @@ namespace Bierman.UiToolkit.Wizardry.ViewModel
             set
             {
                 _description = value;
-                this.OnPropertyChanged("Description");
+                OnPropertyChanged("Description");
             }
         }
 
@@ -57,7 +54,7 @@ namespace Bierman.UiToolkit.Wizardry.ViewModel
             set
             {
                 _heading = value;
-                this.OnPropertyChanged("Heading");
+                OnPropertyChanged("Heading");
             }
         }
 
@@ -91,12 +88,12 @@ namespace Bierman.UiToolkit.Wizardry.ViewModel
         {
             get
             {
-                return this.isValid;
+                return isValid;
             }
             protected set
             {
-                this.isValid = value;
-                this.OnPropertyChanged("IsValid");
+                isValid = value;
+                OnPropertyChanged("IsValid");
             }
         }
 
@@ -107,14 +104,14 @@ namespace Bierman.UiToolkit.Wizardry.ViewModel
         {
             get
             {
-                return this.formName;
+                return formName;
             }
         }
 
-        protected WizardViewModelBase(string formName)
+        protected PresentableViewModelBase(string formName)
         {
             this.formName = formName;
-            this.PropertyChangedCompleted(string.Empty);
+            PropertyChangedCompleted(string.Empty);
         }
 
         protected override void PropertyChangedCompleted(string propertyName)
@@ -124,13 +121,13 @@ namespace Bierman.UiToolkit.Wizardry.ViewModel
             if (propertyName != "IsValid")
             {
                 // update the isValid status
-                if (string.IsNullOrEmpty(this.Error) && this.ValidPropertiesCount == this.TotalPropertiesWithValidationCount)
+                if (string.IsNullOrEmpty(Error) && ValidPropertiesCount == TotalPropertiesWithValidationCount)
                 {
-                    this.IsValid = true;
+                    IsValid = true;
                 }
                 else
                 {
-                    this.IsValid = false;
+                    IsValid = false;
                 }
             }
         }
@@ -243,7 +240,7 @@ namespace Bierman.UiToolkit.Wizardry.ViewModel
             set
             {
                 _windowTitle = value;
-                this.OnPropertyChanged("WindowTitle");
+                OnPropertyChanged("WindowTitle");
             }
         }
         #endregion
