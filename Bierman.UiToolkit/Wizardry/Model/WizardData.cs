@@ -10,10 +10,19 @@ namespace Bierman.UiToolkit.Wizardry.Model
 {
     public class WizardData : INotifyPropertyChanged, INotifyDataErrorInfo
     {
-        protected void ValidateNotNull(string name, string? value)
+        protected void ValidatePositiveNumber(string name, double? input)
         {
             ClearErrors(name);
-            if (string.IsNullOrWhiteSpace(value))
+            if (input.HasValue && input.Value > 0)
+                return;
+
+            AddError(name, $"{name} must be a positive number");
+        }
+
+        protected void ValidateNotNull(string name, string? input)
+        {
+            ClearErrors(name);
+            if (string.IsNullOrWhiteSpace(input))
             {
                 AddError(name, $"{name} cannot be empty");
             }
