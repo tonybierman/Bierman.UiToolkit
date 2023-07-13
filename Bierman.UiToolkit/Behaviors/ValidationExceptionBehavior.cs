@@ -22,10 +22,11 @@ namespace Bierman.UiToolkit.Behaviors
         {
             // we want to count only the validation error with an exception
             // other error are handled by using the attribute on the properties
-            if (e.Error.Exception == null)
-            {
-                return;
-            }
+            // TODO: Not sure what to do with this conditional, but it seems to break validation rules
+            //if (e.Error.Exception == null)
+            //{
+            //    return;
+            //}
 
             if (e.Action == ValidationErrorEventAction.Added)
             {

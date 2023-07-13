@@ -17,6 +17,17 @@ namespace Bierman.UiToolkit.ViewModel
         private readonly Dictionary<string, Func<ValidationViewModelBase, object>> propertyGetters;
         private readonly Dictionary<string, ValidationAttribute[]> validators;
 
+        //private bool _hasBrokenValidationRules = false;
+        //public bool HasBrokenValidationRules
+        //{
+        //    get { return _hasBrokenValidationRules; }
+        //    set
+        //    {
+        //        _hasBrokenValidationRules = value;
+        //        this.OnPropertyChanged("HasBrokenValidationRules");
+        //    }
+        //}
+
         /// <summary>
         /// Gets the error message for the property with the given name.
         /// </summary>

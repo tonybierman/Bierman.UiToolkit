@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace Bierman.UiToolkit.Model
 {
@@ -58,7 +60,19 @@ namespace Bierman.UiToolkit.Model
             }
         }
 
-        protected void AddError(string propertyName, string error)
+        //protected void AddError(string propertyName, string error)
+        //{
+        //    if (!_errors.ContainsKey(propertyName))
+        //        _errors[propertyName] = new List<string>();
+
+        //    if (!_errors[propertyName].Contains(error))
+        //    {
+        //        _errors[propertyName].Add(error);
+        //        OnErrorsChanged(propertyName);
+        //    }
+        //}
+
+        public void AddError(string propertyName, string error)
         {
             if (!_errors.ContainsKey(propertyName))
                 _errors[propertyName] = new List<string>();
@@ -66,7 +80,30 @@ namespace Bierman.UiToolkit.Model
             if (!_errors[propertyName].Contains(error))
             {
                 _errors[propertyName].Add(error);
-                OnErrorsChanged(propertyName);
+                ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+            }
+        }
+
+        public void RemoveError(string propertyName, string error)
+        {
+            if (_errors.ContainsKey(propertyName) && _errors[propertyName].Contains(error))
+            {
+                _errors[propertyName].Remove(error);
+                ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+            }
+        }
+
+        public void OnValidationError(object sender, ValidationErrorEventArgs e)
+        {
+            string propertyName = ((BindingExpression)e.Error.BindingInError).ResolvedSourcePropertyName;
+
+            if (e.Action == ValidationErrorEventAction.Added)
+            {
+                AddError(propertyName, e.Error.ErrorContent.ToString());
+            }
+            else
+            {
+                RemoveError(propertyName, e.Error.ErrorContent.ToString());
             }
         }
     }
