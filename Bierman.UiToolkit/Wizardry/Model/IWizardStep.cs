@@ -8,7 +8,7 @@ using Bierman.UiToolkit.ViewModel;
 
 namespace Bierman.UiToolkit.Wizardry.Model
 {
-    public interface IWizardStep<T> where T : IDataTransferObject
+    public interface IWizardStep<T> where T : IVerifiable
     {
         string? Name { get; }
         T? Data { get; }

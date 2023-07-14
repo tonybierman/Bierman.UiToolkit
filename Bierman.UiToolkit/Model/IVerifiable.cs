@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bierman.UiToolkit.Model
 {
-    public interface IDataTransferObject
+    public interface IVerifiable
     {
-        //void Validate();
+        void Validate();
+        bool IsValid { get; }
     }
 }

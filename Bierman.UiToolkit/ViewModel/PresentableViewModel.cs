@@ -1,9 +1,12 @@
 ﻿using Bierman.UiToolkit.Command;
+using Bierman.UiToolkit.Model;
 using Bierman.UiToolkit.Windows;
 using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Markup;
 
 namespace Bierman.UiToolkit.ViewModel
 {
@@ -16,6 +19,21 @@ namespace Bierman.UiToolkit.ViewModel
         private string? _heading;
         private string? _description;
         private string? _image;
+
+        private IVerifiable? _data;
+
+        public IVerifiable? Data
+        {
+            get
+            {
+                return _data;
+            }
+            set
+            {
+                _data = value;
+                this.OnPropertyChanged("Data");
+            }
+        }
 
         public string? Image
         {
@@ -98,20 +116,7 @@ namespace Bierman.UiToolkit.ViewModel
 
         protected override void PropertyChangedCompleted(string propertyName)
         {
-            // test prevent infinite loop while settings IsValid 
-            // (which causes an PropertyChanged to be raised)
-            if (propertyName != "IsValid")
-            {
-                // update the isValid status
-                if (string.IsNullOrEmpty(Error) && ValidPropertiesCount == TotalPropertiesWithValidationCount)
-                {
-                    IsValid = true;
-                }
-                else
-                {
-                    IsValid = false;
-                }
-            }
+
         }
 
         //protected virtual void ParentViewLoadedExecute(object obj)
@@ -241,8 +246,15 @@ namespace Bierman.UiToolkit.ViewModel
         }
         protected virtual bool SaveFormCanExecute()
         {
-            return true;
+            if (Data != null)
+            {
+                Data.Validate();
+                return Data.IsValid;
+            }
+
+            return false;
         }
+
         protected virtual void SaveFormExecute() => RaiseCloseRequest();
         #endregion
 
