@@ -7,9 +7,8 @@ using System.Windows.Input;
 
 namespace Bierman.UiToolkit.ViewModel
 {
-    public abstract class PresentableViewModelBase : ValidationViewModelBase, ICloseable
+    public abstract class PresentableViewModel : VerifiableViewModel, ICloseable
     {
-        private bool isValid;
         private readonly string formName;
         private ICommand? _parentViewLoadedCommand;
         private ICommand? _dialogViewLoadedCommand;
@@ -81,23 +80,6 @@ namespace Bierman.UiToolkit.ViewModel
         }
 
         /// <summary>
-        /// Gets a value indicating whether the form is valid in its current state. If all properties
-        /// wich validation are valid, this property returns true.
-        /// </summary>
-        public bool IsValid
-        {
-            get
-            {
-                return isValid;
-            }
-            protected set
-            {
-                isValid = value;
-                OnPropertyChanged("IsValid");
-            }
-        }
-
-        /// <summary>
         /// Gets the name of the form.
         /// </summary>
         public string FormName
@@ -108,7 +90,7 @@ namespace Bierman.UiToolkit.ViewModel
             }
         }
 
-        protected PresentableViewModelBase(string formName)
+        protected PresentableViewModel(string formName)
         {
             this.formName = formName;
             PropertyChangedCompleted(string.Empty);

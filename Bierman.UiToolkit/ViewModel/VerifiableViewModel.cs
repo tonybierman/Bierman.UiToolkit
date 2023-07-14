@@ -12,21 +12,29 @@ namespace Bierman.UiToolkit.ViewModel
     /// A base classe for ViewModel classes which supports validation using IDataErrorInfo interface. Properties must defines
     /// validation rules by using validation attributes defined in System.ComponentModel.DataAnnotations.
     /// </summary>
-    public class ValidationViewModelBase : ViewModelBase, IDataErrorInfo, IValidationExceptionHandler
+    public class VerifiableViewModel : ViewModelBase, IDataErrorInfo, IValidationExceptionHandler
     {
-        private readonly Dictionary<string, Func<ValidationViewModelBase, object>> propertyGetters;
+        private readonly Dictionary<string, Func<VerifiableViewModel, object>> propertyGetters;
         private readonly Dictionary<string, ValidationAttribute[]> validators;
 
-        //private bool _hasBrokenValidationRules = false;
-        //public bool HasBrokenValidationRules
-        //{
-        //    get { return _hasBrokenValidationRules; }
-        //    set
-        //    {
-        //        _hasBrokenValidationRules = value;
-        //        this.OnPropertyChanged("HasBrokenValidationRules");
-        //    }
-        //}
+        private bool _isValid;
+
+        /// <summary>
+        /// Gets a value indicating whether the form is valid in its current state. If all properties
+        /// wich validation are valid, this property returns true.
+        /// </summary>
+        public bool IsValid
+        {
+            get
+            {
+                return _isValid;
+            }
+            protected set
+            {
+                _isValid = value;
+                OnPropertyChanged("IsValid");
+            }
+        }
 
         /// <summary>
         /// Gets the error message for the property with the given name.
@@ -93,7 +101,7 @@ namespace Bierman.UiToolkit.ViewModel
             }
         }
 
-        public ValidationViewModelBase()
+        public VerifiableViewModel()
         {
             this.validators = this.GetType()
                 .GetProperties()
@@ -111,9 +119,9 @@ namespace Bierman.UiToolkit.ViewModel
             return (ValidationAttribute[])property.GetCustomAttributes(typeof(ValidationAttribute), true);
         }
 
-        private Func<ValidationViewModelBase, object> GetValueGetter(PropertyInfo property)
+        private Func<VerifiableViewModel, object> GetValueGetter(PropertyInfo property)
         {
-            return new Func<ValidationViewModelBase, object>(viewmodel => property.GetValue(viewmodel, null));
+            return new Func<VerifiableViewModel, object>(viewmodel => property.GetValue(viewmodel, null));
         }
 
         private int validationExceptionCount;
