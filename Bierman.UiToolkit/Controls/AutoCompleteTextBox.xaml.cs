@@ -170,7 +170,7 @@ namespace Bierman.UiToolkit.Controls
             if(this.AutoSuggestionList != null)
             {
                 // Settings.  
-                var suggestions = this.AutoSuggestionList.Where(p => p.ToLower().Contains(this.autoTextBox.Text.ToLower())).ToList();
+                var suggestions = this.AutoSuggestionList.Where(p => p != null && p.ToLower().Contains(this.autoTextBox.Text.ToLower())).ToList();
                 this.autoList.ItemsSource = suggestions;
                 if (suggestions.Count > 0)
                 {
