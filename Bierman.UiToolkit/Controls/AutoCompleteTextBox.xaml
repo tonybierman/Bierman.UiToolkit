@@ -6,36 +6,24 @@
              mc:Ignorable="d"    
              x:Name="parent"
              d:DesignHeight="480" d:DesignWidth="640">
-    <Grid>
-        <StackPanel Orientation="Vertical"    
-                    VerticalAlignment="Center"    
-                    HorizontalAlignment="Center">
-
-            <!-- Text Box -->
-            <Border x:Name="autoTextBoxBorder">
-                <!--<Border.Background>
-                    <ImageBrush ImageSource="/WPFAutoCompleteTextBox;component/Content/img/text-box_bg.png"/>
-                </Border.Background>-->
-                <TextBox x:Name="autoTextBox"      
+    <StackPanel Orientation="Vertical">
+        <!-- Text Box -->
+        <TextBox MinHeight="24" x:Name="autoTextBox"
                     TextChanged="AutoTextBox_TextChanged"
                     Text="{Binding ElementName=parent, Path=Text, Mode=TwoWay}"/>
-            </Border>
-
-            <!-- Auto Suggestion box -->
-            <Popup x:Name="autoListPopup"    
+        <!-- Auto Suggestion box -->
+        <Popup x:Name="autoListPopup"    
                    Visibility="Collapsed"                    
                    Height="100"    
                    StaysOpen="False"    
                    Placement="Bottom">
-
-                <ListBox x:Name="autoList"    
+            <ListBox x:Name="autoList"    
                          Visibility="Collapsed"    
                          Width="200"    
                          Height="100"    
                          Background="Black"
                          Foreground="White"
                          SelectionChanged="AutoList_SelectionChanged" />
-            </Popup>
-        </StackPanel>
-    </Grid>
+        </Popup>
+    </StackPanel>
 </UserControl>    
