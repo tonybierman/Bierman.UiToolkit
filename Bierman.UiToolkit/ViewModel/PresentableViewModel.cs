@@ -1,6 +1,6 @@
 ﻿using Bierman.UiToolkit.Command;
-using Bierman.UiToolkit.Model;
 using Bierman.UiToolkit.Windows;
+using Bierman.UiToolkit.Wizardry;
 using System;
 using System.ComponentModel;
 using System.Windows;
@@ -20,9 +20,9 @@ namespace Bierman.UiToolkit.ViewModel
         private string? _description;
         private string? _image;
 
-        private IVerifiable? _data;
+        private IWizardData? _data;
 
-        public IVerifiable? Data
+        public IWizardData? Data
         {
             get
             {

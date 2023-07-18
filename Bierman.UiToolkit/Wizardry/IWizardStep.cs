@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Bierman.UiToolkit.Model;
 using Bierman.UiToolkit.ViewModel;
 
-namespace Bierman.UiToolkit.Wizardry.Model
+namespace Bierman.UiToolkit.Wizardry
 {
-    public interface IWizardStep<T> where T : IVerifiable
+    public interface IWizardStep<T> where T : IWizardData
     {
         string? Name { get; }
         T? Data { get; }

@@ -1,5 +1,4 @@
-﻿using Bierman.UiToolkit.Model;
-using Bierman.UiToolkit.Wizardry.Model;
+﻿using Bierman.UiToolkit.Wizardry;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,7 @@ using System.Windows.Input;
 
 namespace Bierman.UiToolkit.ViewModel
 {
-    public class WizardViewModel<T> : PresentableViewModel where T : IVerifiable
+    public class WizardViewModel<T> : PresentableViewModel where T : IWizardData
     {
         public ICommand NavigateCommand { get; protected set; }
         //private WeighInData? _data;
