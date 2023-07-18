@@ -1,4 +1,5 @@
-﻿using Bierman.UiToolkit.Wizardry;
+﻿using Bierman.UiToolkit.Command;
+using Bierman.UiToolkit.Wizardry;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,11 @@ namespace Bierman.UiToolkit.ViewModel
             }
         }
 
-        protected WizardViewModel(string formName) : base(formName) { }
+        protected WizardViewModel(string formName) : base(formName) 
+        {
+            NavigateCommand = new RelayCommand<string>(GoToStep);
+            this.WindowTitle = this.FormName;
+        }
 
         protected virtual void GoToStep(string s)
         {

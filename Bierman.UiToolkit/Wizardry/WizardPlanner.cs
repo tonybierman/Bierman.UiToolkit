@@ -39,20 +39,18 @@ namespace Bierman.UiToolkit.Wizardry
             return stepPlan.OrderBy(item => item.InputProperty.GetCustomAttribute<StepInputAttribute>()?.Order).ToList();
         }
 
-        public static IWizardStep<T> InstantiatePlan<T>(List<StepPlanItem> plan, out T data) where T : IWizardData, new()
+        public static IWizardStep<T> InstantiatePlan<T>(List<StepPlanItem> plan, T data) where T : IWizardData
         {
             List<IWizardStep<T>> steps = new List<IWizardStep<T>>();
-            var d = new T();
             foreach (var item in plan)
             {
-                IWizardStep<T>? stepObject = WizardPlanner.InstantiateStep(item, ref d);
+                IWizardStep<T>? stepObject = WizardPlanner.InstantiateStep(item, ref data);
                 if (stepObject == null)
                     throw new NullReferenceException(nameof(stepObject));
 
                 steps.Add(stepObject);
             }
 
-            data = d;
             var retval = steps.First();
 
             for (int i = 0; i < steps.Count; i++)

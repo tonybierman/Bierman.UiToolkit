@@ -38,6 +38,15 @@ namespace Bierman.UiToolkit.Model
                 OnPropertyChanged("IsValid");
             }
         }
+        public DataTransferObject()
+        {
+            PropertyChanged += OnPropertyChanged;
+        }
+
+        protected virtual void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+
+        }
 
         #region INotifyPropertyChanged
         [Conditional("DEBUG")]
@@ -76,9 +85,9 @@ namespace Bierman.UiToolkit.Model
 
         public bool HasErrors => _validationErrors.Count > 0;
 
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+        public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
 
-        public IEnumerable GetErrors(string propertyName)
+        public IEnumerable GetErrors(string? propertyName)
         {
             if (string.IsNullOrEmpty(propertyName) || !_validationErrors.ContainsKey(propertyName))
                 return null;
@@ -105,14 +114,14 @@ namespace Bierman.UiToolkit.Model
             }
         }
 
-        private void AddErrors(string propertyName, IEnumerable<string> errors)
+        private void AddErrors(string propertyName, IEnumerable<string?> errors)
         {
             if (!_validationErrors.ContainsKey(propertyName))
                 _validationErrors[propertyName] = new List<string>();
 
             foreach (var error in errors)
             {
-                _validationErrors[propertyName].Add(error);
+                if (error != null) { _validationErrors[propertyName].Add(error); }
             }
             OnErrorsChanged(propertyName);
         }

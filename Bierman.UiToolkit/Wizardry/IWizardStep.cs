@@ -9,7 +9,7 @@ namespace Bierman.UiToolkit.Wizardry
 {
     public interface IWizardStep<T> where T : IWizardData
     {
-        string? Name { get; }
+        string? Title { get; }
         T? Data { get; }
         IWizardStep<T>? Previous { get; set; }
         IWizardStep<T>? Next { get; set; }
