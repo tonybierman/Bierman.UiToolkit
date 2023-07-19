@@ -178,7 +178,6 @@ namespace Bierman.UiToolkit.Controls
                     this.OpenAutoSuggestionBox();
                 }
             }
-
         }
 
         /// <summary>  
@@ -204,6 +203,7 @@ namespace Bierman.UiToolkit.Controls
             // Settings.  
             this.autoTextBox.Text = this.autoList.SelectedItem.ToString();
             this.autoList.SelectedIndex = -1;
+            this.autoTextBox.Focus();
         }
     }
 }
