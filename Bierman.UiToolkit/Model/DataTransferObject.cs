@@ -40,13 +40,13 @@ namespace Bierman.UiToolkit.Model
         }
         public DataTransferObject()
         {
-            PropertyChanged += OnPropertyChanged;
+            //PropertyChanged += OnPropertyChanged;
         }
 
-        protected virtual void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
-        {
+        //private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        //{
 
-        }
+        //}
 
         #region INotifyPropertyChanged
         [Conditional("DEBUG")]
