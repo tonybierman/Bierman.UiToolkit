@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bierman.UiToolkit.Wizardry
+namespace Bierman.Wizardry
 {
     public interface IWizardData
     {

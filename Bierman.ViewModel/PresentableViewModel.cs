@@ -1,14 +1,6 @@
-﻿using Bierman.UiToolkit.Command;
-using Bierman.UiToolkit.Windows;
-using Bierman.Wizardry;
-using System;
-using System.ComponentModel;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Markup;
+﻿using System.Windows.Input;
 
-namespace Bierman.UiToolkit.ViewModel
+namespace Bierman.ViewModel
 {
     public abstract class PresentableViewModel : VerifiableViewModel, ICloseable
     {

@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bierman.UiToolkit.Wizardry
+namespace Bierman.Wizardry
 {
     public class StepPlanItem
     {

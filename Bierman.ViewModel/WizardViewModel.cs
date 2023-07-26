@@ -1,13 +1,6 @@
-﻿using Bierman.UiToolkit.Command;
-using Bierman.Wizardry;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
-namespace Bierman.UiToolkit.ViewModel
+namespace Bierman.ViewModel
 {
     public class WizardViewModel<T> : PresentableViewModel where T : IWizardData
     {

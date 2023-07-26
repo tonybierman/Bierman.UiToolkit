@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Bierman.UiToolkit.ViewModel;
-
-namespace Bierman.UiToolkit.Wizardry
+﻿namespace Bierman.Wizardry
 {
     public interface IWizardStep<T> where T : IWizardData
     {
