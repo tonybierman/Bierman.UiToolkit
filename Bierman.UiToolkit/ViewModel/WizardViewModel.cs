@@ -1,5 +1,5 @@
 ﻿using Bierman.UiToolkit.Command;
-using Bierman.Wizardry;
+using Bierman.Model.Wizardry;
 using System;
 using System.Collections.Generic;
 using System.Linq;
