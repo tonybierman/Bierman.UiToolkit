@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Markup;
 
-namespace Bierman.Wizardry
+namespace Bierman.Model.Wizardry
 {
     public static class WizardPlanner
     {

@@ -1,4 +1,4 @@
-﻿namespace Bierman.Wizardry
+﻿namespace Bierman.Model.Wizardry
 {
     public interface IWizardStep<T> where T : IWizardData
     {

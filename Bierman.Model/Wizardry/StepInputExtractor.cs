@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bierman.Wizardry
+namespace Bierman.Model.Wizardry
 {
     public static class StepInputExtractor
     {
