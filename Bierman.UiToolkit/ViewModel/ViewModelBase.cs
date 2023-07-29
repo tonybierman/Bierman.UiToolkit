@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
+using System.Xml.Linq;
 
 namespace Bierman.UiToolkit.ViewModel
 {
@@ -12,7 +13,7 @@ namespace Bierman.UiToolkit.ViewModel
         /// <summary>
         /// Raised when a property on this object has a new value.
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         /// <summary>
         /// Warns the developer if this object does not have a public property with
@@ -38,10 +39,12 @@ namespace Bierman.UiToolkit.ViewModel
         {
             this.VerifyPropertyName(propertyName);
 
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            //if (this.PropertyChanged != null)
+            //{
+            //    this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            //}
+
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
             this.PropertyChangedCompleted(propertyName);
         }

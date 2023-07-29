@@ -39,7 +39,7 @@ namespace Bierman.Model.Wizardry
             return stepPlan.OrderBy(item => item.InputProperty.GetCustomAttribute<StepInputAttribute>()?.Order).ToList();
         }
 
-        public static IWizardStep<T> InstantiatePlan<T>(List<StepPlanItem> plan, T data) where T : IWizardData
+        public static List<IWizardStep<T>> InstantiatePlan<T>(List<StepPlanItem> plan, T data) where T : IWizardData
         {
             List<IWizardStep<T>> steps = new List<IWizardStep<T>>();
             foreach (var item in plan)
@@ -54,7 +54,6 @@ namespace Bierman.Model.Wizardry
                 }
             }
 
-            var retval = steps.First();
 
             for (int i = 0; i < steps.Count; i++)
             {
@@ -70,7 +69,7 @@ namespace Bierman.Model.Wizardry
                 }
             }
 
-            return retval;
+            return steps;
         }
 
 

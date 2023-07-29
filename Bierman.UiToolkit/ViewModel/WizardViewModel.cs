@@ -12,7 +12,8 @@ namespace Bierman.UiToolkit.ViewModel
     public class WizardViewModel<T> : PresentableViewModel where T : IWizardData
     {
         public ICommand NavigateCommand { get; protected set; }
-        //private WeighInData? _data;
+
+        protected List<IWizardStep<T>>? _steps;
 
         private IWizardStep<T>? _currentStep;
         public IWizardStep<T>? CurrentStep
@@ -72,6 +73,16 @@ namespace Bierman.UiToolkit.ViewModel
                     base.SaveFormExecute();
                 }
             }
+        }
+
+        protected void EnsureWizardPlan(T data)
+        {
+            //throw new NotImplementedException();
+            var plan = WizardPlanner.GenerateStepPlan(typeof(T));
+            _steps = WizardPlanner.InstantiatePlan(plan, data);
+            CurrentStep = _steps.First();
+            Data = data;
+            this.WindowTitle = this.FormName;
         }
     }
 }
